@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class Order {
 
@@ -12,17 +13,13 @@ public class Order {
            return "";
        }
 
-       String[] splitWords = words.split(" ");
-       String[] sortedWords = new String[splitWords.length];
+        return Arrays.stream(words.split(" "))
+                .sorted(Comparator.comparingInt(Order::extractNumber))
+                .reduce((word1, word2) -> word1 + " " + word2)
+                .orElse("");
+    }
 
-       for (String word : splitWords) {
-           for (String character : word.split("")) {
-               if (character.matches("-?\\d+(\\.\\d+)?")) {
-                   sortedWords[Integer.parseInt(character) - 1] = word;
-               }
-           }
-       }
-
-       return String.join(" ", sortedWords);
+    private static int extractNumber(String word) {
+        return Integer.parseInt(word.replaceAll("\\D", ""));
     }
 }
