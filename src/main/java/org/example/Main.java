@@ -1,6 +1,6 @@
 package org.example;
 
-import static org.example.StringSplit.solution;
+import static org.example.sixKyu.StringSplit.solution;
 
 public class Main {
     public static void main(String[] args) {
