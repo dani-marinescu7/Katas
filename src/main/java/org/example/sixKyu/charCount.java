@@ -15,12 +15,7 @@ public class charCount {
         Map<Character, Integer> result = new HashMap<>();
 
         for (char ch : str.toCharArray()) {
-            if (result.containsKey(ch)) {
-                int currentValue = result.get(ch);
-                result.put(ch, currentValue + 1);
-            } else {
-                result.put(ch, 1);
-            }
+            result.put(ch, result.getOrDefault(ch, 0) + 1);
         }
 
         return result;
