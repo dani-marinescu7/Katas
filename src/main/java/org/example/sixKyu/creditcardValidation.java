@@ -3,30 +3,38 @@ package org.example.sixKyu;
 public class creditcardValidation {
 
     public static void main(String[] args) {
-        System.out.println(validate("891"));
+        System.out.println(validate("2121"));
     }
 
     public static boolean validate(String n){
-        StringBuilder sb = new StringBuilder(n);
+        String[] numbers = n.split("");
         int sum = 0;
 
-        for (int i = 0; i < sb.length(); i++) {
-            if (sb.length() % 2 == 0) {
+        if (numbers.length % 2 == 0) {
+            for (int i = 0; i < numbers.length; i++) {
+                int number = Integer.parseInt(numbers[i]);
                 if (i % 2 == 0) {
-                    if (sb.charAt(i) * 2 > 9) {
-                        sb.setCharAt(i, (char) ((sb.charAt(i) * 2) - 9));
+                    if ((number * 2) > 9) {
+                        number = (number * 2) - 9;
+                    } else {
+                        number = number * 2;
                     }
                 }
-            } else if (sb.length() % 2 != 0) {
-                if (i % 2 != 0) {
-                    if (sb.charAt(i) * 2 > 9) {
-                        sb.setCharAt(i, (char) ((sb.charAt(i) * 2) - 9));
-                    }
-                }
+                sum += number;
             }
-            sum += sb.charAt(i);
+        } else {
+            for (int i = 0; i < numbers.length; i++) {
+                int number = Integer.parseInt(numbers[i]);
+                if (i % 2 != 0) {
+                    if ((number * 2) > 9) {
+                        number = (number * 2) - 9;
+                    } else {
+                        number = number * 2;
+                    }
+                }
+                sum += number;
+            }
         }
-
         return sum % 10 == 0;
     }
 }
