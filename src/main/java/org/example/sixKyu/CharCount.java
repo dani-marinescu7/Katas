@@ -3,7 +3,7 @@ package org.example.sixKyu;
 import java.util.HashMap;
 import java.util.Map;
 
-public class charCount {
+public class CharCount {
 
     public static void main(String[] args) {
         String input = "aaabbooootml";

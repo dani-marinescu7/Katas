@@ -1,6 +1,6 @@
 package org.example.sixKyu;
 
-public class bitCount {
+public class BitCount {
 
     public static int countBits(int n) { return Integer.bitCount(n); }
 

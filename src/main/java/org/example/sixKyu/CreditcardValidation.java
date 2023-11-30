@@ -1,6 +1,6 @@
 package org.example.sixKyu;
 
-public class creditcardValidation {
+public class CreditcardValidation {
 
     public static void main(String[] args) {
         System.out.println(validate("2121"));

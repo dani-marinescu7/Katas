@@ -1,8 +1,5 @@
 package org.example.sixKyu;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class StringSplit {
     public static String[] solution(String s) {
         if (s == null || s.isEmpty()) {

@@ -1,6 +1,6 @@
 package org.example.sixKyu;
 
-public class romanNumeralsEncoder {
+public class RomanNumeralsEncoder {
 
     public static void main(String[] args) {
         int number = 1990;
