@@ -9,16 +9,18 @@ public class SumFct {
     }
 
     public static BigInteger perimeter(BigInteger n) {
-        int a = 0;
-        int b = 1;
-        int sum = 0;
+        BigInteger a = BigInteger.ZERO;
+        BigInteger b = BigInteger.ONE;
+        BigInteger sum = BigInteger.ZERO;
 
-        for (int i = 0; i<= n.intValue(); i++) {
-            sum += 4 * b;
-            int temp = a + b;
+        for (BigInteger i = BigInteger.ZERO; i.compareTo(n) <= 0; i = i.add(BigInteger.ONE)) {
+            sum = sum.add(b.multiply(BigInteger.valueOf(4))); // Add the perimeter of the current square
+
+            BigInteger temp = a.add(b);
             a = b;
             b = temp;
         }
-        return BigInteger.valueOf(sum);
+
+        return sum;
     }
 }
