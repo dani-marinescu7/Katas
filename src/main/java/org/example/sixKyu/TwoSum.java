@@ -2,7 +2,7 @@ package org.example.sixKyu;
 
 import java.util.Arrays;
 
-public class twoSum {
+public class TwoSum {
 
     public static void main(String[] args) {
         System.out.println(Arrays.toString(twoSum(new int[]{1, 2, 3}, 4)));

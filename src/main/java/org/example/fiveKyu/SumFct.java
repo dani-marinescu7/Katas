@@ -1,4 +1,4 @@
-package org.example.sixKyu;
+package org.example.fiveKyu;
 
 import java.math.BigInteger;
 
