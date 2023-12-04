@@ -1,4 +1,4 @@
-package org.example.sixKyu;
+package org.dani.sixKyu;
 
 import java.util.HashMap;
 import java.util.Map;

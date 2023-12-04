@@ -1,6 +1,6 @@
-package org.example;
+package org.dani;
 
-import static org.example.sixKyu.StringSplit.solution;
+import static org.dani.sixKyu.StringSplit.solution;
 
 public class Main {
     public static void main(String[] args) {

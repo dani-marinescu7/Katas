@@ -1,4 +1,4 @@
-package org.example.sixKyu;
+package org.dani.sixKyu;
 
 public class StringSplit {
     public static String[] solution(String s) {

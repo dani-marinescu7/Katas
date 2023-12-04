@@ -1,4 +1,4 @@
-package org.example.sixKyu;
+package org.dani.fiveKyu;
 
 public class TicTacToeChecker {
 

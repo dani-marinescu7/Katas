@@ -1,4 +1,4 @@
-package org.example.fiveKyu;
+package org.dani.fiveKyu;
 
 public class RgbToHex {
 

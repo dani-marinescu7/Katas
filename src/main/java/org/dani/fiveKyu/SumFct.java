@@ -1,4 +1,4 @@
-package org.example.fiveKyu;
+package org.dani.fiveKyu;
 
 import java.math.BigInteger;
 
