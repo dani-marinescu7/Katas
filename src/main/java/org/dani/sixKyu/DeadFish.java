@@ -17,14 +17,11 @@ public class DeadFish {
         int value = 0;
 
         for (String command : commands) {
-            if (Objects.equals(command, "i")) {
-                value += 1;
-            } else if (Objects.equals(command, "d")) {
-                value -= 1;
-            } else if (Objects.equals(command, "s")) {
-                value *= value;
-            } else if (Objects.equals(command, "o")) {
-                result.add(value);
+            switch (command) {
+                case "i" -> value += 1;
+                case "d" -> value -= 1;
+                case "s" -> value *= value;
+                case "o" -> result.add(value);
             }
         }
         return result.stream().mapToInt(Integer::intValue).toArray();
