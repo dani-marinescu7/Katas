@@ -3,7 +3,7 @@ package org.dani.sixKyu;
 public class CuckooClock {
 
     public static void main(String[] args) {
-        System.out.println(cuckooClock("03:38", 19));;
+        System.out.println(cuckooClock("03:38", 19));
     }
 
     public static String cuckooClock(String inputTime, int chimes) {
