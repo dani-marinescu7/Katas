@@ -17,8 +17,12 @@ public class FactDecomp {
 
     private static List<Integer> primeFactors(int number) {
         List<Integer> result = new ArrayList<>();
-        for (int i = 2; i <= number; i++) {
+        result.add(2);
 
+        for (int i = 3; i <= number; i++) {
+            if (i % 2 != 0 && i % 3 != 0 && i % 5 != 0) {
+                result.add(i);
+            }
         }
         return result;
     }
