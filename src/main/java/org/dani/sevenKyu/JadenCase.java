@@ -3,11 +3,13 @@ package org.dani.sevenKyu;
 public class JadenCase {
 
     public static void main(String[] args) {
-        System.out.println(toJadenCase("How can mirrors be real if our eyes aren't real"));
+        System.out.println(toJadenCase("most trees are blue"));
     }
 
     public static String toJadenCase(String phrase) {
-        if (!phrase.isEmpty()) {
+        if (phrase == null || phrase.isEmpty()) {
+            return null;
+        } else {
             StringBuilder result = new StringBuilder();
             String[] words = phrase.split(" ");
 
@@ -20,9 +22,7 @@ public class JadenCase {
                 }
                 result.append(" ");
             }
-            return result.toString();
+            return result.toString().trim();
         }
-
-        return null;
     }
 }
