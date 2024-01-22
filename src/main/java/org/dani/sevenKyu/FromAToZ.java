@@ -7,12 +7,9 @@ public class FromAToZ {
     }
 
     public static String gimmeTheLetters(String s){
-        char start = s.charAt(0);
-        char end = s.charAt(2);
-
         StringBuilder result = new StringBuilder();
 
-        for (char current = start; current <= end; current++) {
+        for (char current = s.charAt(0); current <= s.charAt(2); current++) {
             result.append(current);
         }
 
