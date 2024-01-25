@@ -1,5 +1,8 @@
 package org.dani.fiveKyu;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -13,12 +16,16 @@ public class ClosestWeight {
     public static int[][] closest(String strng) {
         int[][] result = new int[2][3];
         String[] stringNumbers = strng.split(" ");
-        int[] numbersWeight = new int[stringNumbers.length];
+        Map<Integer, ArrayList<Integer>> numberDetails = new HashMap<>();
 
-        for (int i = 0; i <= stringNumbers.length; i++) {
+        for (int i = 0; i <= stringNumbers.length - 1; i++) {
             int[] digits = Stream.of(stringNumbers[i].split("")).mapToInt(Integer::parseInt).toArray();
-            numbersWeight[i] = IntStream.of(digits).sum();
+            ArrayList<Integer> details = new ArrayList<>();
+            details.add(i);
+            details.add(IntStream.of(digits).sum());
+            numberDetails.put(Integer.valueOf(stringNumbers[i]), details);
         }
+        System.out.println(numberDetails);
 
         return result;
     }
