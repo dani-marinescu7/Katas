@@ -3,6 +3,7 @@ package org.dani.fiveKyu;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -25,7 +26,11 @@ public class ClosestWeight {
             details.add(IntStream.of(digits).sum());
             numberDetails.put(Integer.valueOf(stringNumbers[i]), details);
         }
-        System.out.println(numberDetails);
+        Map<Integer, ArrayList<Integer>> sortedMap = new TreeMap<>(numberDetails);
+
+        for (Map.Entry<Integer, ArrayList<Integer>> entry : sortedMap.entrySet()) {
+            System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
+        }
 
         return result;
     }
