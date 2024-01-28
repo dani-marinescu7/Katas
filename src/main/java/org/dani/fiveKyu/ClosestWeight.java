@@ -28,10 +28,6 @@ public class ClosestWeight {
         }
         Map<Integer, ArrayList<Integer>> sortedMap = new TreeMap<>(numberDetails);
 
-        for (Map.Entry<Integer, ArrayList<Integer>> entry : sortedMap.entrySet()) {
-            System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
-        }
-
         return result;
     }
 }
