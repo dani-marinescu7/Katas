@@ -1,9 +1,6 @@
 package org.dani.fiveKyu;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -26,7 +23,28 @@ public class ClosestWeight {
             details.add(IntStream.of(digits).sum());
             numberDetails.put(Integer.valueOf(stringNumbers[i]), details);
         }
+
         Map<Integer, ArrayList<Integer>> sortedMap = new TreeMap<>(numberDetails);
+        Iterator<Map.Entry<Integer, ArrayList<Integer>>> iterator = sortedMap.entrySet().iterator();
+        Map.Entry<Integer, ArrayList<Integer>> currentEntry = iterator.next();
+
+        int smallestWeight = 1000;
+
+        while (iterator.hasNext()) {
+            Map.Entry<Integer, ArrayList<Integer>> nextEntry = iterator.next();
+
+            int currentRank = currentEntry.getValue().get(0);
+            int nextRank = nextEntry.getValue().get(0);
+            int currentWeight = currentEntry.getValue().get(1);
+            int nextWeight = nextEntry.getValue().get(1);
+
+            if (currentWeight - nextWeight > smallestWeight){
+                smallestWeight = currentWeight - nextWeight;
+            }
+
+            // Move to the next entry
+            currentEntry = nextEntry;
+        }
 
         return result;
     }
