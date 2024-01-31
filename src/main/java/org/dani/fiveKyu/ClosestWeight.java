@@ -20,31 +20,13 @@ public class ClosestWeight {
             int[] digits = Stream.of(stringNumbers[i].split("")).mapToInt(Integer::parseInt).toArray();
             ArrayList<Integer> details = new ArrayList<>();
             details.add(i);
-            details.add(IntStream.of(digits).sum());
-            numberDetails.put(Integer.valueOf(stringNumbers[i]), details);
+            details.add(Integer.valueOf(stringNumbers[i]));
+            numberDetails.put(IntStream.of(digits).sum(), details);
         }
+        Map<Integer, ArrayList<Integer>> sortedByWeight = new TreeMap<>(numberDetails);
 
-        Map<Integer, ArrayList<Integer>> sortedMap = new TreeMap<>(numberDetails);
-        Iterator<Map.Entry<Integer, ArrayList<Integer>>> iterator = sortedMap.entrySet().iterator();
-        Map.Entry<Integer, ArrayList<Integer>> currentEntry = iterator.next();
+        System.out.println(sortedByWeight);
 
-        int smallestWeight = 1000;
-
-        while (iterator.hasNext()) {
-            Map.Entry<Integer, ArrayList<Integer>> nextEntry = iterator.next();
-
-            int currentRank = currentEntry.getValue().get(0);
-            int nextRank = nextEntry.getValue().get(0);
-            int currentWeight = currentEntry.getValue().get(1);
-            int nextWeight = nextEntry.getValue().get(1);
-
-            if (currentWeight - nextWeight > smallestWeight){
-                smallestWeight = currentWeight - nextWeight;
-            }
-
-            // Move to the next entry
-            currentEntry = nextEntry;
-        }
 
         return result;
     }
