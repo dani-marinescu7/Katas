@@ -24,6 +24,16 @@ public class ClosestWeight {
             numberDetails.put(IntStream.of(digits).sum(), details);
         }
         Map<Integer, ArrayList<Integer>> sortedByWeight = new TreeMap<>(numberDetails);
+        ArrayList<Integer> weights = new ArrayList<>(sortedByWeight.keySet());
+        int smallestWeightDifference = weights.get(weights.size() - 1);
+        Map<Integer, ArrayList<Integer>> smallestDifferences = new HashMap<>();
+
+        for (int i = 0; i <= weights.size() - 1; i++) {
+           if (weights.get(i + 1) - weights.get(i) < smallestWeightDifference) {
+               smallestWeightDifference = weights.get(i + 1) - weights.get(i);
+
+           }
+        }
 
         System.out.println(sortedByWeight);
 
