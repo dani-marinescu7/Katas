@@ -7,8 +7,8 @@ public class RomanNumerals {
     public static String[] symbols = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
 
     public static void main(String[] args) {
-        System.out.println(toRoman(10));
-        System.out.println(fromRoman("L"));
+        System.out.println(toRoman(1666));
+        System.out.println(fromRoman("MDCLXVI"));
     }
 
     public static String toRoman(int n) {
@@ -32,12 +32,21 @@ public class RomanNumerals {
         if (romanNumeral.length() <= 1) {
             return values[findIndex(romanNumeral)];
         }
+
         String[] romanNumeralCharacters = romanNumeral.split("");
+        int result = 0;
 
-        for (int i = 0; i <= romanNumeralCharacters.length - 1; i++) {
+        for (int i = 0; i < romanNumeralCharacters.length - 1; i++) {
+            int currentValue = values[findIndex(romanNumeralCharacters[i])];
+            int nextValue = values[findIndex(romanNumeralCharacters[i + 1])];
 
+            if (currentValue < nextValue) {
+                result += nextValue - currentValue;
+            }
+            result += currentValue;
         }
-        return 1;
+        result += values[findIndex(romanNumeralCharacters[romanNumeralCharacters.length - 1])];
+        return result;
     }
 
     private static int findIndex(String symbol) {
