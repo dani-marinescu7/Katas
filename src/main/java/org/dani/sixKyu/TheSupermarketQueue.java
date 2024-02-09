@@ -9,29 +9,11 @@ public class TheSupermarketQueue {
     }
 
     public static int solveSuperMarketQueue(int[] customers, int n) {
-        if (n == 1) {
-            return Arrays.stream(customers).sum();
+        int[] result = new int[n];
+        for (int customer : customers) {
+            result[0] += customer;
+            Arrays.sort(result);
         }
-
-        int[] tills = new int[n];
-        int totalTime = 0;
-
-        for (int nextCustomerTime : customers) {
-            int minTillIndex = findMinTillIndex(tills);
-            tills[minTillIndex] += nextCustomerTime;
-            totalTime = Math.max(totalTime, tills[minTillIndex]);
-        }
-
-        return totalTime;
-    }
-
-    private static int findMinTillIndex(int[] tills) {
-        int minTillIndex = 0;
-        for (int i = 1; i < tills.length; i++) {
-            if (tills[i] < tills[minTillIndex]) {
-                minTillIndex = i;
-            }
-        }
-        return minTillIndex;
+        return result[n-1];
     }
 }
