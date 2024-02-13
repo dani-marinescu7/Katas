@@ -9,16 +9,42 @@ public class NextSmaller {
     }
 
     public static long nextSmaller(long n) {
-        String[] digits = Long.toString(n).split("");
-        for (long i = n - 1; i >= 0; i--) {
-            String[] newDigits = Long.toString(i).split("");
-            Arrays.sort(digits);
-            Arrays.sort(newDigits);
+        char[] digits = Long.toString(n).toCharArray();
 
-            if (Arrays.equals(digits, newDigits))  {
-                return i;
-            }
+        int i = digits.length - 1;
+        while (i > 0 && digits[i - 1] <= digits[i]) {
+            i--;
         }
-        return -1;
+
+        if (i == 0) {
+            return -1;
+        }
+
+        int j = digits.length - 1;
+        while (j > i && digits[j] >= digits[i - 1]) {
+            j--;
+        }
+
+        char temp = digits[i - 1];
+        digits[i - 1] = digits[j];
+        digits[j] = temp;
+
+        reverse(digits, i, digits.length - 1);
+
+        if (digits[0] == '0') {
+            return -1;
+        }
+
+        return Long.parseLong(new String(digits));
+    }
+
+    private static void reverse(char[] arr, int start, int end) {
+        while (start < end) {
+            char temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
     }
 }
